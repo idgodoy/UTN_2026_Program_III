@@ -1,0 +1,30 @@
+<!--
+- getElementsByTagName (usado en el Listado 4-2) referencia un elemento 
+por su nombre o palabra clave. 
+- getElementById referencia un elemento por el valor de su atributo id. 
+- getElementsByClassName es una nueva incorporación que nos permite 
+referenciar un elemento por el valor de su atributo class. 
+-->
+
+<!DOCTYPE html> 
+<html lang="es"> 
+<head> 
+  <meta charset="UTF-8">    
+  <title>Este texto es el título del documento</title> 
+  <script> 
+    function mostraralerta(){ 
+      alert('hizo clic!'); 
+    } 
+    function hacerclic(){ 
+      document.getElementsByTagName('p')[0].onclick=mostraralerta; 
+    } 
+    window.onload=hacerclic; 
+    </script> 
+</head> 
+<body> 
+ <div id="principal"> 
+ <p>Hacer Clic</p> 
+ <p>No puede hacer Clic</p> 
+ </div>
+ </body> 
+</html> 
