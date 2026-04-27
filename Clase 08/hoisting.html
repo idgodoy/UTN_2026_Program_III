@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Estudio: Hoisting y Alcance en JavaScript</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #0d9488;
+            color: #0d9488;
+            font-weight: 600;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased leading-relaxed">
+
+    <!-- Chosen Palette: Warm Neutrals with Muted Teal Accents (bg-stone-50, text-stone-800, teal-600 for accents) -->
+    <!-- Application Structure Plan: The SPA is structured as a tabbed dashboard to facilitate non-linear exploration of the study guide. Tab 1 focuses on core qualitative concepts. Tab 2 translates the properties of var, let, and const into a quantitative radar chart for visual comparison. Tab 3 provides an interactive glossary for quick reference. Tab 4 uses an accordion-style FAQ for self-testing. This structure prevents cognitive overload and encourages active learning. -->
+    <!-- Visualization & Content Choices: Data (Concepts) -> Goal: Compare -> Viz: Radar Chart (Chart.js) -> Interaction: Hover tooltips & Tab navigation -> Justification: Shows the "profile" or strictness of each variable declaration type visually. No SVG or Mermaid used, relies purely on HTML/Tailwind/Canvas. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <div class="max-w-5xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Declaración de Variables, Alcance y Hoisting</h1>
+            <p class="text-lg text-stone-600 max-w-3xl mx-auto">Esta guía interactiva resume cómo el motor de JavaScript (ES6+) gestiona la memoria y la visibilidad de las variables antes y durante la ejecución del código. Comprender estos conceptos es vital para evitar errores comunes relacionados con el uso de variables antes de su definición y la fuga de datos fuera de los ámbitos deseados.</p>
+        </header>
+
+        <nav class="flex flex-wrap justify-center gap-2 md:gap-8 mb-8 border-b border-stone-200">
+            <button onclick="switchTab('conceptos')" id="btn-conceptos" class="tab-btn active pb-2 px-4 text-stone-500 hover:text-stone-800 transition-colors transition-all">🧠 Conceptos Clave</button>
+            <button onclick="switchTab('analisis')" id="btn-analisis" class="tab-btn pb-2 px-4 text-stone-500 hover:text-stone-800 transition-colors transition-all">📊 Análisis Visual</button>
+            <button onclick="switchTab('glosario')" id="btn-glosario" class="tab-btn pb-2 px-4 text-stone-500 hover:text-stone-800 transition-colors transition-all">📚 Glosario</button>
+            <button onclick="switchTab('preguntas')" id="btn-preguntas" class="tab-btn pb-2 px-4 text-stone-500 hover:text-stone-800 transition-colors transition-all">❓ Autoevaluación</button>
+        </nav>
+
+        <main>
+            <section id="conceptos" class="fade-in block">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-teal-800 mb-2">Fundamentos de JavaScript</h2>
+                    <p class="text-stone-600">Explora los conceptos fundamentales sobre cómo JavaScript lee e interpreta las declaraciones de variables y funciones. Haz clic en cada tarjeta para centrarte en sus detalles.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-stone-800 mb-3"><span class="text-teal-600 mr-2">▪</span>Hoisting de var</h3>
+                        <p class="text-stone-600 text-sm">JavaScript eleva la declaración de las variables <code>var</code> al inicio de su contexto (global o de función) y las inicializa automáticamente como <code>undefined</code>. Esto permite que el código no falle si se accede a ellas antes de la línea de declaración, aunque su valor no sea el final.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-stone-800 mb-3"><span class="text-teal-600 mr-2">▪</span>Hoisting de let y const</h3>
+                        <p class="text-stone-600 text-sm">Aunque estas variables también se elevan, el motor de JavaScript prohíbe el acceso a ellas hasta que la ejecución llega a la línea donde se declaran. Intentar usarlas antes resulta en un error de referencia (Temporal Dead Zone).</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-stone-800 mb-3"><span class="text-teal-600 mr-2">▪</span>Alcance (Scope) de Bloque</h3>
+                        <p class="text-stone-600 text-sm">Introducido en ES6, permite que variables declaradas con <code>let</code> o <code>const</code> dentro de cualquier par de llaves <code>{}</code> (como en un <code>if</code>, <code>for</code> o <code>while</code>) solo existan dentro de ese bloque, previniendo la fuga de datos.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-stone-800 mb-3"><span class="text-teal-600 mr-2">▪</span>Inmutabilidad con const</h3>
+                        <p class="text-stone-600 text-sm">A diferencia de <code>let</code>, <code>const</code> requiere una inicialización inmediata y no permite que el identificador sea reasignado a un nuevo valor. Protege referencias clave en tu aplicación.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 md:col-span-2 hover:shadow-md transition-shadow">
+                        <h3 class="text-xl font-bold text-stone-800 mb-3"><span class="text-teal-600 mr-2">▪</span>Elevación de Funciones</h3>
+                        <p class="text-stone-600 text-sm">Las declaraciones de funciones (<code>function nombre() {}</code>) se elevan completamente, lo que significa que el cuerpo de la función está disponible en memoria incluso antes de ser definida en el archivo. Esto es distinto a las expresiones de función asignadas a variables.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="analisis" class="fade-in hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-teal-800 mb-2">Comparativa Estructural</h2>
+                    <p class="text-stone-600">Este gráfico de radar cuantifica el comportamiento de <code>var</code>, <code>let</code> y <code>const</code> basándose en sus propiedades estructurales (100 = Sí/Alto, 0 = No/Bajo). Observa cómo <code>const</code> y <code>let</code> ofrecen mayor previsibilidad y seguridad.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                    <div class="chart-container">
+                        <canvas id="scopeChart"></canvas>
+                    </div>
+                    <div class="mt-6 grid grid-cols-3 gap-4 text-center text-sm">
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-[rgba(239,68,68,0.7)] mr-1"></span>
+                            <span class="font-semibold text-stone-700">var</span>
+                            <p class="text-xs text-stone-500 mt-1">Flexible pero propenso a errores (Scope de función, inicializado en Hoisting).</p>
+                        </div>
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-[rgba(59,130,246,0.7)] mr-1"></span>
+                            <span class="font-semibold text-stone-700">let</span>
+                            <p class="text-xs text-stone-500 mt-1">Estándar moderno (Scope de bloque, reasignable, protegido por TDZ).</p>
+                        </div>
+                        <div>
+                            <span class="inline-block w-3 h-3 rounded-full bg-[rgba(16,185,129,0.7)] mr-1"></span>
+                            <span class="font-semibold text-stone-700">const</span>
+                            <p class="text-xs text-stone-500 mt-1">Máxima seguridad (Scope de bloque, inmutable en reasignación).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="glosario" class="fade-in hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-teal-800 mb-2">Vocabulario Técnico</h2>
+                    <p class="text-stone-600">Haz clic en cada término para revelar su definición formal dentro del ecosistema de JavaScript.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="vocab-container">
+                </div>
+            </section>
+
+            <section id="preguntas" class="fade-in hidden">
+                <div class="mb-6">
+                    <h2 class="text-2xl font-semibold text-teal-800 mb-2">Preguntas Clave</h2>
+                    <p class="text-stone-600">Evalúa tu comprensión interactuando con las preguntas extraídas del reporte. Haz clic en la pregunta para intentar responder mentalmente antes de leer la justificación.</p>
+                </div>
+                <div class="space-y-4" id="faq-container">
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        const vocabData = [
+            { term: "Hoisting", def: "Proceso interno de JavaScript que mueve las declaraciones al principio del ámbito actual durante la fase de compilación." },
+            { term: "Scope (Alcance)", def: "El contexto actual de ejecución; la región donde los valores y expresiones son 'visibles' o pueden ser referenciados." },
+            { term: "Temporal Dead Zone (TDZ)", def: "El estado de una variable desde el inicio de su bloque hasta que se procesa su declaración, durante el cual no puede ser accedida." },
+            { term: "Undefined", def: "Valor primitivo que JavaScript asigna automáticamente a las variables declaradas que aún no tienen un valor asignado." },
+            { term: "ReferenceError", def: "Error que ocurre cuando se intenta acceder a una variable que no ha sido declarada o que se encuentra en la TDZ." },
+            { term: "SyntaxError", def: "Error que ocurre cuando el código no sigue las reglas gramaticales de JavaScript, como intentar redeclarar un let en el mismo ámbito." }
+        ];
+
+        const faqData = [
+            { 
+                q: "¿Por qué el uso de var puede causar errores lógicos en bucles o condicionales?", 
+                a: "Porque 'var' tiene alcance de función (o global), no de bloque. Si declaras 'var' dentro de un 'if' o un bucle 'for', esa variable sigue existiendo y siendo accesible fuera de las llaves {}, lo que puede sobrescribir datos no intencionadamente." 
+            },
+            { 
+                q: "¿Qué diferencia el hoisting de una declaración de función frente a una expresión de función?", 
+                a: "Una declaración de función ('function fx() {}') eleva tanto su nombre como su cuerpo, permitiendo ejecutarla antes de su línea. Una expresión ('const fx = function() {}') solo eleva la variable según las reglas de var, let o const, pero no la definición de la función." 
+            },
+            { 
+                q: "¿Qué sucede técnicamente cuando intentamos acceder a una variable en la Zona Muerta Temporal?", 
+                a: "El motor de ejecución de JavaScript detiene el proceso y lanza un 'ReferenceError'. Aunque sabe que la variable existe (gracias al hoisting), prohíbe el acceso a su espacio de memoria hasta que la instrucción de declaración es evaluada secuencialmente." 
+            },
+            { 
+                q: "¿En qué casos es preferible usar const sobre let para mejorar la legibilidad y seguridad?", 
+                a: "Siempre que sepas que la referencia (el valor primitivo o el puntero de memoria del objeto/array) no debe ser reasignada. Usar 'const' por defecto comunica claramente la intención del desarrollador de que ese valor es una constante estructural durante el ciclo de vida del bloque." 
+            }
+        ];
+
+        function initApp() {
+            renderVocab();
+            renderFAQ();
+            initChart();
+        }
+
+        function switchTab(tabId) {
+            const tabs = ['conceptos', 'analisis', 'glosario', 'preguntas'];
+            tabs.forEach(t => {
+                document.getElementById(t).classList.add('hidden');
+                document.getElementById(t).classList.remove('block');
+                document.getElementById(`btn-${t}`).classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.remove('hidden');
+            document.getElementById(tabId).classList.add('block');
+            document.getElementById(`btn-${tabId}`).classList.add('active');
+        }
+
+        function renderVocab() {
+            const container = document.getElementById('vocab-container');
+            vocabData.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden cursor-pointer transition-all hover:border-teal-500 group";
+                card.onclick = () => toggleVocab(index);
+                
+                card.innerHTML = `
+                    <div class="p-4 bg-stone-50 border-b border-stone-100 group-hover:bg-teal-50 transition-colors flex justify-between items-center">
+                        <h3 class="font-bold text-stone-800">${item.term}</h3>
+                        <span class="text-stone-400 text-xl font-bold" id="vocab-icon-${index}">+</span>
+                    </div>
+                    <div class="p-4 hidden text-sm text-stone-600 bg-white" id="vocab-def-${index}">
+                        ${item.def}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function toggleVocab(index) {
+            const defElement = document.getElementById(`vocab-def-${index}`);
+            const iconElement = document.getElementById(`vocab-icon-${index}`);
+            if (defElement.classList.contains('hidden')) {
+                defElement.classList.remove('hidden');
+                iconElement.innerText = "-";
+                iconElement.classList.add('text-teal-600');
+            } else {
+                defElement.classList.add('hidden');
+                iconElement.innerText = "+";
+                iconElement.classList.remove('text-teal-600');
+            }
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faq-container');
+            faqData.forEach((item, index) => {
+                const block = document.createElement('div');
+                block.className = "bg-white border border-stone-200 rounded-xl overflow-hidden";
+                
+                block.innerHTML = `
+                    <button class="w-full text-left p-5 focus:outline-none bg-white hover:bg-stone-50 transition-colors flex justify-between items-center" onclick="toggleFaq(${index})">
+                        <span class="font-semibold text-stone-800 pr-4">${item.q}</span>
+                        <span id="faq-icon-${index}" class="text-stone-400 transform transition-transform">▼</span>
+                    </button>
+                    <div id="faq-ans-${index}" class="hidden px-5 pb-5 pt-2 text-stone-600 border-t border-stone-100 bg-stone-50 text-sm leading-relaxed">
+                        ${item.a}
+                    </div>
+                `;
+                container.appendChild(block);
+            });
+        }
+
+        function toggleFaq(index) {
+            const ansElement = document.getElementById(`faq-ans-${index}`);
+            const iconElement = document.getElementById(`faq-icon-${index}`);
+            if (ansElement.classList.contains('hidden')) {
+                ansElement.classList.remove('hidden');
+                iconElement.classList.add('rotate-180', 'text-teal-600');
+            } else {
+                ansElement.classList.add('hidden');
+                iconElement.classList.remove('rotate-180', 'text-teal-600');
+            }
+        }
+
+        function initChart() {
+            const ctx = document.getElementById('scopeChart').getContext('2d');
+            
+            const data = {
+                labels: [
+                    'Alcance de Bloque',
+                    'Acceso Pre-Declaración (Hoisting)',
+                    'Reasignable',
+                    'Redeclarable en Scope',
+                    'Seguridad / Previsibilidad'
+                ],
+                datasets: [
+                    {
+                        label: 'var',
+                        data: [0, 100, 100, 100, 20],
+                        fill: true,
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(239, 68, 68, 1)'
+                    },
+                    {
+                        label: 'let',
+                        data: [100, 0, 100, 0, 80],
+                        fill: true,
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: 'rgba(59, 130, 246, 1)',
+                        pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(59, 130, 246, 1)'
+                    },
+                    {
+                        label: 'const',
+                        data: [100, 0, 0, 0, 100],
+                        fill: true,
+                        backgroundColor: 'rgba(16, 185, 129, 0.2)',
+                        borderColor: 'rgba(16, 185, 129, 1)',
+                        pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(16, 185, 129, 1)'
+                    }
+                ]
+            };
+
+            const config = {
+                type: 'radar',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
+                            grid: { color: 'rgba(0, 0, 0, 0.1)' },
+                            pointLabels: {
+                                font: { size: 11, family: "'Inter', sans-serif" },
+                                color: '#444'
+                            },
+                            ticks: {
+                                display: false,
+                                min: 0,
+                                max: 100
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    let val = context.raw;
+                                    let mapStr = val > 50 ? 'Sí/Alto' : 'No/Bajo';
+                                    return `${label}: ${mapStr}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        }
+
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

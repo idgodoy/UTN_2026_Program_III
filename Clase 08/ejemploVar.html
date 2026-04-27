@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de variable</title>
+</head>
+<body>
+    <h1>Ejemplo de variable</h1>
+    <p>En este ejemplo se muestra cómo declarar y usar una variable en JavaScript.</p>
+
+    <script>
+
+        console.log(globalVar); // Imprime: undefined (debido al hoisting, la variable mensaje existe pero no ha sido asignada aún)   
+        console.log(localVar); // Error: localVar is not defined (no se puede acceder a esta variable antes de su declaración  )
+        console.log(minum); // Imprime: undefined (debido al hoisting, la variable minum existe pero no ha sido asignada aún)   
+        console.log(varEnBloque); // Imprime: undefined (debido al hoisting, la variable varEnBloque existe pero no ha sido asignada aún)   
+        console.log(saludar()); // Imprime: ¡Hola desde la función! (la función saludar también es hoisted)
+        console.log(saludar2); // Imprime: undefined (debido al hoisting, la variable saludar2 existe pero no ha sido asignada aún, ya que es una función anónima asignada a una variable)
+        
+        // Declaración de una variable
+       const PI = 3.141592; // Declaración de una constante (no puede ser reasignada).
+       let saldo = 106.43; // Declaración de una variable con let (recomendada).
+       var mensaje = "¡Hola, mundo!"; // FC0A:00A0
+       var globalVar = "Soy una variable global"; // Declaración de una variable global con var (no recomendado).
+       descuento = 0.0;
+        num = 42; // Declaración de una variable sin var (no recomendado).
+
+    function saludar() {
+            console.log("¡Hola desde la función!");
+        }
+    var saludar2 = function() {
+        console.log("¡Hola desde la función!");
+    }        
+        
+        console.log(saludar2); // Imprime: function() { console.log("¡Hola desde la función!"); } (la función anónima asignada a la variable saludar2 también es hoisted, pero su valor no está disponible hasta que se ejecuta esa línea de código)     
+        console.log(saludar2()); // Imprime: ¡Hola desde la función! (la función anónima asignada a la variable saludar2 se ejecuta correctamente aquí, ya que su valor está disponible después de su declaración)  
+
+    for (let i=0; i<10; i++) {
+    
+        console.log(i);
+    
+    }
+    /* BLOQUE */
+    {
+        let localVar = "Soy una variable local"; // Declaración de una variable local con let (recomendada).    
+        let mensaje = "¡Hola desde el bloque!";  // FC0A:00E0
+        minum = 90; // Declaración de una variable sin var (no recomendado).
+        var varEnBloque = "Soy una variable declarada con var dentro de un bloque"; // Declaración de una variable con var dentro de un bloque (no recomendado).
+        console.log(mensaje); // Imprime: ¡Hola desde el bloque!        
+        console.log(FC0A:00E0); // Imprime: ¡Hola desde el bloque!        
+        descuento = 25.0;
+    }
+
+        // FC0A:00E0 ahora es mem. libre, pero la variable 
+        // mensaje del bloque no afecta a la variable mensaje 
+        // del ámbito global.
+        console.log(mensaje);
+        console.log(FC0A:00A0); // Imprime: ¡Hola, mundo! (la variable mensaje del bloque no afecta a esta)        
+
+
+//Tipos de datoss en JS:
+// - String: para texto (ejemplo: "¡Hola, mundo!")
+// - Number: para números (ejemplo: 42, 3.14159)
+// - Boolean: para valores de verdad (ejemplo: true, false)
+// - Object: para objetos (ejemplo: let persona = { nombre: "Juan", edad: 30 };)
+// - Function: para funciones (ejemplo: function saludar() { console.log("¡Hola!"); })
+// - Undefined: para variables que no han sido asignadas (ejemplo: let x; console.log(x); // undefined)
+// - Null: para representar la ausencia de valor (ejemplo: let y = null; console.log(y); // null)
+
+
+        //"HOISTING" 
+// El proceso por el cual las declaraciones de variables y funciones son movidas a la parte superior del ámbito antes de la ejecución del código.
+        // Uso de la variable
+        console.log(mensaje); // Imprime: ¡Hola, mundo!
+        console.log(num); // Imprime: 42
+        console.log(saldo); // Imprime: 106.43
+        console.log(PI); // Imprime: 3.14159
+ </script>
+
+
+
+</html>
