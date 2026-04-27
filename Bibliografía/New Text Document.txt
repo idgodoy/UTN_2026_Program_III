@@ -1,0 +1,19 @@
+.lectura-facil {
+    font-size: 24px;
+    background-color: #f5f5dc;
+    color: #000080;
+    padding: 20px;
+}
+script.js
+
+JavaScript
+function prepararPagina() {
+    var boton = document.querySelector('#boton-estilo');
+    var parrafo = document.querySelector('#texto');
+
+    boton.addEventListener('click', function() {
+        parrafo.classList.toggle('lectura-facil');
+    }, false);
+}
+
+window.addEventListener('load', prepararPagina, false);
