@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
+<head>  
+    <script>
+        function agregarTexto() {
+        miTexto.innerHTML += "<br> Y Otro...";
+        }
+ function cambiaNumero() {
+ const numero = document.getElementById("numero");
+ numero.innerHTML = "Número cambiado a: " + Math.floor(Math.random() * 100);
+        }
+    </script>    
+</head>
+
+
 <body>
-<h1>JavaScript HTML DOM</h1>
-<h2>Usando getElementById() e innerHTML</h2>
+    <h2>JavaScript HTML DOM</h2>
+    <h3>Usando getElementById() e innerHTML</h3>
 
 <p id="parrafo"></p>
 
+<p id="numero">Númerddfgdfgdfgo original: 0</p>
+
 <script>
-// Access a paragraph Element
 const miTexto = document.getElementById("parrafo");
 
-// Change the content of the Element
-miTexto.innerHTML = "Texto agregado usando innerHTML y getElementById()";
+miTexto.innerHTML = "Texto agregado usando innerHTML y getElementById() <br>";
+
+miTexto.innerHTML += " Otro texto agregado";
 </script>
 
 
-
+<input type="button" value="Agregar texto" onclick="agregarTexto()">
+<input type="button" value="Cambiar número" onclick="cambiaNumero()">   
 </body>
 </html>
