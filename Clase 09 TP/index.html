@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Perfil - Progra III</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Simulador de Perfil de Usuario</h1>
+        <h2> </h2>
+        <nav>
+            <a href="https://github.com/ocantone/UTN_2026_Program_III" target="_blank">Repositorio Clase</a> | 
+            <a href="https://www.w3schools.com/js/DEFAULT.asp" target="_blank">Documentación en W3schools</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Sección del Formulario -->
+        <section class="formulario">
+            <h2>Datos del Usuario</h2>
+            <div class="grupoFormulario">
+                <label>Nombre:</label>
+                <input type="text" id="inputNombre" placeholder="Ej: Juan Pérez">
+            </div>
+            <div class="grupoFormulario">
+                <label>Profesión:</label>
+                <input type="text" id="inputProfesion" placeholder="Ej: Desarrollador Web">
+            </div>
+            <div class="grupoFormulario">
+                <label>URL de Imagen:</label>
+                <input type="text" id="inputImagen" placeholder="Pegue el link de una foto">
+            </div>
+            <div class="grupoFormulario">
+                <label>Color de Fondo:</label>
+                <select id="inputColor">
+                    <option value="#ffffff">Blanco</option>
+                    <option value="#e3f2fd">Azul Claro</option>
+                    <option value="#e8f5e9">Verde Suave</option>
+                    <option value="#f5f5f5">Gris Humo</option>
+                </select>
+            </div>
+            <button onclick="actualizarPerfil()">Generar Perfil</button>
+        </section>
+
+        <!-- Sección de Visualización -->
+        <section class="tarjeta">
+            <h2>Vista Previa</h2>
+            <div id="tarjetaPerfil" class="card">
+                <img id="fotoPerfil" src="https://via.placeholder.com/150" alt="Foto de perfil">
+                <h3 id="nombrePerfil">Nombre de Usuario</h3>
+                <p id="profesionPerfil">Descripción de la profesión</p>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
