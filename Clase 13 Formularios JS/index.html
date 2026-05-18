@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+
+<head> 
+    <meta charset="UTF-8">
+    <title>Este texto es el título del documento</title>    
+<style>
+.div_2 p:nth-child(odd){ 
+ background: #A0AFAF; 
+} 
+/*.div_2 p:nth-child(even){ 
+ background: #000099
+} */
+</style>
+<script>
+/*const x = document.querySelectorAll(".div_2 p:nth-child(odd)");
+for (let i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "#ff0000";
+}  
+
+
+const y = document.querySelectorAll(".div_2 p:nth-child(even)").style.backgroundColor = "#ff0000";
+for (let i = 0; i < x.length; i++) {
+    y[i].style.backgroundColor = "#0000ff";
+}*/  
+function carga(e){
+    console.log(e);
+    e.preventDefault();
+let cad = document.getElementById("nombre").value;
+    document.getElementById("p1").innerHTML = cad;
+}
+function muestra(){
+let cad;
+    if(document.getElementsByName("nch1")[0].checked)
+        cad = document.getElementsByName("nch1")[0].value;
+        else
+        cad = "0";
+    document.getElementById("span1").innerHTML = cad;
+    }
+
+</script>
+
+</head> 
+
+<body> 
+<form onsubmit="carga(event)">
+<p>Nombre <input name="nombre" id="nombre" ></p>
+<p>Suscripción 
+    <input type="radio" name="suscrip" value=1000> $1000
+    <input type="radio" name="suscrip" value=1500> $1500
+    <input type="radio" name="suscrip" value=1800> $1800
+</p>
+<p>Adicional<input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestra()">
+</p>
+<button type="submit">Enviar</button>
+</form>
+<br>
+P1: 
+<p id="p1">&nbsp;</p>
+<p id="p2">Agregar: <span id="span1">400</span></p>
+
+
+
+
+</body> 
+</html> 

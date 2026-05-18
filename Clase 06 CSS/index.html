@@ -12,30 +12,6 @@
  background: #000099
 } */
 </style>
-
-
-</head> 
-
-<body> 
-
-
-<div class="div_2">
-<p> Hijo 1</p>
-<p> Hijo 2</p>
-<p> Hijo 3</p>
-<p> Hijo 4</p>
-<p> Hijo 5</p>
-<p> Hijo 6</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-<p> Hijo 7</p>
-
-</div>
-
 <script>
 /*const x = document.querySelectorAll(".div_2 p:nth-child(odd)");
 for (let i = 0; i < x.length; i++) {
@@ -47,6 +23,38 @@ const y = document.querySelectorAll(".div_2 p:nth-child(even)").style.background
 for (let i = 0; i < x.length; i++) {
     y[i].style.backgroundColor = "#0000ff";
 }*/  
+function carga(e){
+    console.log(e);
+    e.preventDefault();
+let cad = document.getElementById("nombre").value;
+    document.getElementById("p1").innerHTML = cad;
+}
+function muestra(){
+let cad;
+    if(document.getElementsByName("nch1")[0].checked)
+        cad = document.getElementsByName("nch1")[0].value;
+        else
+        cad = "0";
+    document.getElementById("span1").innerHTML = cad;
+    }
+
 </script>
+
+</head> 
+
+<body> 
+<form onsubmit="carga(event)">
+<input name="nombre" id="nombre" >
+<input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestra()">
+<button type="submit">Enviar</button>
+</form>
+<br>
+P1: 
+<p id="p1">&nbsp;</p>
+<p id="p2">Agregar: <span id="span1">400</span></p>
+
+
+
+
 </body> 
 </html> 
