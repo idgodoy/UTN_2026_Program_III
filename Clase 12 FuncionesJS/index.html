@@ -24,8 +24,30 @@ document.F1.inText2.value = miURL;
     function sumar (a, b){
         console.log(typeof a);
         console.log(typeof b);
+        a=1000;
+        b=400;
         return a + b;
     }
+
+let auto ={ 
+            marca: "Ford", 
+            modelo: "Mustang", 
+            año: 1969
+           };
+let alumno = {
+        nombre: "Juan", //String
+        apellido: "Perez", //Otro String
+        fechaNacim: {    //Objeto dentro de otro
+            dia: 15, //Número
+            mes: "Marzo", //String
+            año: 1995   //Número
+        },  
+        calcularpromedio: (nota1, nota2) => { 
+        return (nota1 + nota2) / 2; //Función dentro de un objeto (método  ) .
+        }   
+    };
+alumno.fechaNacim.dia = 20; //Modificando un valor dentro del objeto anidado.
+alumno.calcularpromedio(8, 9);
 
     </script>
 </head>
@@ -72,8 +94,18 @@ miFuncion();  //lamada a la función.
 
 document.getElementById("div1").innerHTML = mi_var;
 
-document.getElementById("div4").innerHTML ="Resultado: " + sumar(2, 14) + sumar(" Hola ", "Mundo ") + sumar(2*3+4, " Mundo") ;
+let a = 10, b = a+2;
+
+document.getElementById("div4").innerHTML ="Resultado: " + sumar(a, b) + sumar(" Hola ", "Mundo ") + sumar(a*b+b, " Mundo") + " "+a +" "+ b;
  
+
+/*document.querySelectorAll(".Lista p:nth-child(odd)").
+forEach(p => {
+            p.style.backgroundColor = "#A0AFAF";
+            }
+        );
+*/
+
 </script>
 </body>
 </html>
