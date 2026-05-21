@@ -15,7 +15,7 @@
     <script>
         function procesa(e){
             e.preventDefault();
-            let nom = document.getElementById("nombre").value;  // String nom.
+            let nom = document.getElementById("inombre").value;  // String nom.
             let ape = document.F1.apellido.value; // String ape.
 
             let cad = nom + " " + ape;
@@ -51,7 +51,7 @@
                 espanes[i].innerHTML = "";
             }
             let error = false;
-            if(document.F1.nombre.value == "") {
+            if(document.F1.nnombre.value == "") {
                 let tx=document.getElementById("snombre");
                 tx.style.color="red";
                 tx.innerHTML="Complete el nombre";
@@ -64,8 +64,15 @@
                     error = true;
                 }
             if (!error) procesa(e);
-       
         }
+    function muestraAdicional(){
+        if( document.F1.nch1.checked ){
+            document.getElementById("spanAd").innerHTML = "400";
+        }
+        else{
+            document.getElementById("spanAd").innerHTML = "0";
+        }
+    }   
     </script>
 
 </head> 
@@ -73,8 +80,8 @@
 <body> 
     <h2>Formulario de Suscripción </h2>
 
-<form name="F1" action="procesa.html" method="post"> <!-- action espera una URL -->
-    <p>Nombre <input name="nombre" id="nombre" placeholder="Tu nompre">
+<form name="F1" action="procesa_formulario.php" method="POST"> <!-- action espera una URL -->
+    <p>Nombre <input name="nnombre" id="inombre" placeholder="Tu nompre">
     <span name="serror" id="snombre" ></span></p>
     <p>Apellido <input name="apellido" id="apellido" placeholder="Tu apellido">
     <span name="serror" id="sapellido" ></span>
@@ -86,7 +93,7 @@
         <input type="radio" name="suscrip" value=1800>Pro+ $1800 &nbsp;
     </p>
     <p>
-    Adicional envío $400 <input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestra()">
+    Adicional envío $400 <input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestraAdicional()">
     </p>
     <p>Tu zona 
         <select name="zona" id="zona">

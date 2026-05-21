@@ -1,0 +1,97 @@
+<!DOCTYPE html> 
+<html lang="es"> 
+
+<head> 
+    <meta charset="UTF-8">
+    <title>Este texto es el título del documento</title>    
+    <style>
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 12px;
+            color: rgb(100, 100, 100);
+        }
+    </style>
+    <script>
+function verifica(){
+        let nombre = document.getElementById("nombre").value;
+        let apellido = document.getElementById("apellido");
+
+let espanes = document.getElementsByName("serror");
+for( let i=0; i<espanes.length; i++){
+    espanes[i].style.color="black";
+    espanes[i].innerHTML = "";
+}
+
+
+if(nombre == ""){
+    let tx=document.getElementById("snombre");
+    tx.style.color="red";
+    tx.innerHTML="Complete el nombre";
+    return false;
+    }
+   
+if(apellido.value == ""){
+    let p1=document.getElementById("sapellido");
+    p1.style.color="red";
+    p1.innerHTML="Complete el apellido";
+    return false;
+    }
+
+
+
+        alert(nombre + " " + apellido.value);
+
+          
+//            document.F1.submit();
+        }
+
+    </script>
+</head> 
+
+<body> 
+    <h2>Formulario de Suscripción </h2>
+
+<form name="F1" action="javascript:verifica()" method="post"> <!-- action espera una URL -->
+    <p>Nombre <input name="nombre" id="nombre" placeholder="Tu nombre">
+    <span name="serror" id="snombre" >1</span></p>
+    <p>Apellido <input name="apellido" id="apellido" placeholder="Tu apellido">
+    <span name="serror" id="sapellido" >2</span>
+   </p>
+    <p>email <input type="email" name="email" id="email" placeholder="Tu email"></p>
+    <p>Suscripción <br>
+        <input type="radio" name="suscrip" value=1000>Base $1000 &nbsp;
+        <input type="radio" name="suscrip" value=1500>Pro $1500 &nbsp;
+        <input type="radio" name="suscrip" value=1800>Pro+ $1800 &nbsp;
+    </p>
+    <p>
+    Adicional envío $400 <input type="checkbox" name="nch1" id="ch1" checked value="400" >
+    </p>
+    <p>Tu zona 
+        <select name="zona" id="zona">
+                <option value="norte">Norte</option>
+                <option value="sur">Sur</option>
+                <option value="centro">Centro</option>
+        </select>
+    </p>
+    <p> Comentarios & Propuestas <br>
+        <textarea name="coment" id="coment" rows="5" cols="30" placeholder="Ingresa aquí tu comentario"></textarea>
+    </p>
+
+    <button type="submit">Enviar</button>
+</form>
+
+
+
+
+
+<p>Verfica datos ingresados</p>
+<p>Nombre y Apellido: <span id="span1"></span></p>
+<p>Suscripción: <span id="span2"></span></p>
+<p>Email: <span id="span3"></span></p>
+<p>Adicional: <span id="spanAd">400</span></p>
+<p>Zona: <span id="span4"></span></p>
+<p>Comentarios: <span id="span5"></span></p>
+
+ 
+</body> 
+</html> 
