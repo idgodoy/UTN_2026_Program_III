@@ -4,63 +4,112 @@
 <head> 
     <meta charset="UTF-8">
     <title>Este texto es el título del documento</title>    
-<style>
-.div_2 p:nth-child(odd){ 
- background: #A0AFAF; 
-} 
-/*.div_2 p:nth-child(even){ 
- background: #000099
-} */
-</style>
-<script>
-/*const x = document.querySelectorAll(".div_2 p:nth-child(odd)");
-for (let i = 0; i < x.length; i++) {
-    x[i].style.backgroundColor = "#ff0000";
-}  
+    <style>
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 14px;
+            color: rgb(100, 100, 100);
+        }
+    </style>
+
+    <script>
+        function procesa(e){
+            e.preventDefault();
+            let nom = document.getElementById("nombre").value;  // String nom.
+            let ape = document.F1.apellido.value; // String ape.
+
+            let cad = nom + " " + ape;
+            document.getElementById("span1").innerHTML = cad;
+
+            let susc = document.F1.suscrip.value;
+            document.getElementById("span2").innerHTML = susc;
+
+            let email = document.F1.email.value;
+            document.getElementById("span3").innerHTML = email;
+            let zona = document.F1.zona.value;
+            document.getElementById("span4").innerHTML = zona;
+            let coment = document.F1.coment.value;
+            document.getElementById("span5").innerHTML = coment;
+
+            if(document.F1.nch1.checked){
+                document.getElementById("spanAd").innerHTML = "400";
+            }
+            else{
+                document.getElementById("spanAd").innerHTML = "0";
+            }
 
 
-const y = document.querySelectorAll(".div_2 p:nth-child(even)").style.backgroundColor = "#ff0000";
-for (let i = 0; i < x.length; i++) {
-    y[i].style.backgroundColor = "#0000ff";
-}*/  
-function carga(e){
-    console.log(e);
-    e.preventDefault();
-let cad = document.getElementById("nombre").value;
-    document.getElementById("p1").innerHTML = cad;
-}
-function muestra(){
-let cad;
-    if(document.getElementsByName("nch1")[0].checked)
-        cad = document.getElementsByName("nch1")[0].value;
-        else
-        cad = "0";
-    document.getElementById("span1").innerHTML = cad;
-    }
+             document.F1.submit()
+        }
+        function verifica(e){
 
-</script>
+            e.preventDefault();
+
+            let espanes = document.getElementsByName("serror");
+            for( let i=0; i<espanes.length; i++){
+                espanes[i].style.color="black";
+                espanes[i].innerHTML = "";
+            }
+            let error = false;
+            if(document.F1.nombre.value == "") {
+                let tx=document.getElementById("snombre");
+                tx.style.color="red";
+                tx.innerHTML="Complete el nombre";
+                error = true;
+            }
+            else if(document.F1.apellido.value == "") {
+                    let p1=document.getElementById("sapellido");
+                    p1.style.color="red";
+                    p1.innerHTML="Complete el apellido";
+                    error = true;
+                }
+            if (!error) procesa(e);
+       
+        }
+    </script>
 
 </head> 
 
 <body> 
-<form onsubmit="carga(event)">
-<p>Nombre <input name="nombre" id="nombre" ></p>
-<p>Suscripción 
-    <input type="radio" name="suscrip" value=1000> $1000
-    <input type="radio" name="suscrip" value=1500> $1500
-    <input type="radio" name="suscrip" value=1800> $1800
-</p>
-<p>Adicional<input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestra()">
-</p>
-<button type="submit">Enviar</button>
+    <h2>Formulario de Suscripción </h2>
+
+<form name="F1" action="procesa.html" method="post"> <!-- action espera una URL -->
+    <p>Nombre <input name="nombre" id="nombre" placeholder="Tu nompre">
+    <span name="serror" id="snombre" ></span></p>
+    <p>Apellido <input name="apellido" id="apellido" placeholder="Tu apellido">
+    <span name="serror" id="sapellido" ></span>
+   </p>
+    <p>email <input type="email" name="email" id="email" placeholder="Tu email"></p>
+    <p>Suscripción <br>
+        <input type="radio" name="suscrip" value=1000>Base $1000 &nbsp;
+        <input type="radio" name="suscrip" value=1500>Pro $1500 &nbsp;
+        <input type="radio" name="suscrip" value=1800>Pro+ $1800 &nbsp;
+    </p>
+    <p>
+    Adicional envío $400 <input type="checkbox" name="nch1" id="ch1" checked value="400" onchange="muestra()">
+    </p>
+    <p>Tu zona 
+        <select name="zona" id="zona">
+                <option value="norte">Norte</option>
+                <option value="sur">Sur</option>
+                <option value="centro">Centro</option>
+        </select>
+    </p>
+    <p> Comentarios & Propuestas <br>
+        <textarea name="coment" id="coment" rows="5" cols="30" placeholder="Ingresa aquí tu comentario"></textarea>
+    
+    
+    </p>
+
+    <button onclick="verifica(event)">Enviar</button>
 </form>
-<br>
-P1: 
-<p id="p1">&nbsp;</p>
-<p id="p2">Agregar: <span id="span1">400</span></p>
+<p>Nombre y Apellido: <span id="span1"></span></p>
+<p>Suscripción: <span id="span2"></span></p>
+<p>Email: <span id="span3"></span></p>
+<p>Adicional: <span id="spanAd">400</span></p>
+<p>Zona: <span id="span4"></span></p>
+<p>Comentarios: <span id="span5"></span></p>
 
-
-
-
+ 
 </body> 
 </html> 
