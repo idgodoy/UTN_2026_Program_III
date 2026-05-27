@@ -3,44 +3,39 @@ services:
     image: php:8.2-fpm
     container_name: php-fpm_UTN
     volumes:
-      #- ./html_redes1b:/var/www/html/html_redes1b  # '.' significa la carpeta actual de tu proyecto
-      #- ./html_UTN:/var/www/html/html_UTN  # '.' significa la carpeta actual de tu proyecto
-      - ./:/var/www/html  # '.' significa la carpeta actual de tu proyecto
+      - ./:/var/www/html
 
   nginx:
-#    image: nginx:1.28-alpine   #Servidor WEB + Proxy.
-    image: nginx:1.24   #Servidor WEB + Proxy.
+    image: nginx:1.24
     container_name: nginx_UTN
     ports:
       - "80:80"
     volumes:
       - ./configNginx/default.conf:/etc/nginx/conf.d/default.conf
-  #      - ./html_redes1b:/var/www/html/html_redes1b  # '.' significa la carpeta actual de tu proyecto
-  #    - ./html_UTN:/var/www/html/html_UTN  # '.' significa la carpeta actual de tu proyecto
-      - ./:/var/www/html # '.' significa la carpeta actual de tu proyecto
+      - ./:/var/www/html
     depends_on:
       - php
       - db
 
   db:
     image: mysql:8.4.2
-    container_name: db_UTN  # <--- Esto fuerza a que el nombre sea "db" siempre
+    container_name: db_UTN
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: abcde1234
       MYSQL_DATABASE: datos
       MYSQL_USER: usuario
       MYSQL_PASSWORD: abcde5678
     volumes:
-      - ./baseDatosWeb:/var/lib/mysql # Guarda la DB en una carpeta local para no perder datos
+      - ./baseDatosWeb:/var/lib/mysql
     ports:
       - "3306:3306"
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:5.1.1
+    image: phpmyadmin:latest
     container_name: phpmyadmin_UTN
     environment:
-      PMA_HOST: db
-#      PMA_PORT: 3306
+      PMA_HOST: db_UTN
       PMA_USER: usuario
       PMA_PASSWORD: abcde5678
     ports:
