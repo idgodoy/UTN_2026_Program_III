@@ -20,7 +20,6 @@ services:
   db:
     image: mysql:8.4.2
     container_name: db_UTN
-    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: abcde1234
       MYSQL_DATABASE: datos
