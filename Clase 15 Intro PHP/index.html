@@ -41,9 +41,9 @@
 
              document.F1.submit()
         }
-        function verifica(e){
+        function verifica(evento){
 
-            e.preventDefault();
+            evento.preventDefault();
 
             let espanes = document.getElementsByName("serror");
             for( let i=0; i<espanes.length; i++){
@@ -63,7 +63,7 @@
                     p1.innerHTML="Complete el apellido";
                     error = true;
                 }
-            if (!error) procesa(e);
+            if (!error) procesa(evento);
         }
     function muestraAdicional(){
         if( document.F1.nch1.checked ){
