@@ -3,11 +3,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argumentos en JS: Valor vs Referencia - UTN</title>
-    <script>
+<style>
+    .Lista9  {
+        nth-child: even;
+        background-color: #A0AFAF;
+    }
+</style>
+
+<script>
            function muestra(){ 
             let mivalor = document.getElementById("inText1").value ;
             if (isNaN(mivalor)) { 
                 document.getElementById("div3").innerHTML= "no es un núumero.";
+               
                 } else { 
                 document.getElementById("div3").innerHTML = "es un núumero.";
                 }
@@ -80,7 +88,13 @@ alumno.calcularpromedio(8, 9);
 
         <div id="div4">div4 </div> 
 
-
+<div class="Lista9">
+    <p>Elemento 1</p>
+    <p>Elemento 2</p>
+    <p>Elemento 3</p>
+    <p>Elemento 4</p>
+    <p>Elemento 5</p>
+</div>  
 <script>
 
 let mi_var = "Variable global mi_var";
