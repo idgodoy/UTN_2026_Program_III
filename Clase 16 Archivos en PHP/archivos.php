@@ -18,7 +18,7 @@ fclose($archivo);
 
 </head>
 <body>
-Arcchivo <? echo $nombre ?> creado con éxito
+Archivo <? echo $nombre ?> creado con éxito
 
 
 <p><a href="index.php">Volver</a></p>

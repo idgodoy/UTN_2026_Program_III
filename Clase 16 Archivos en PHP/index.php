@@ -77,10 +77,11 @@ footer { margin-top: 50px; text-align: center; color: #888; font-size: 0.9em; }
 <h1>Programación III</h1>
 <p>Dashboard de Clases y Recursos - UTN</p>
 </header>
-<h2>Crear njuevo archivo PHP o HTML</h2>
+<h2>Crear nuevo archivo PHP o HTML</h2>
 
 <form name=F1 method= POST action=archivos.php>
-Nombre del archivo <input name=nomarchivo placeholder="nombre del archivo "> <br>
+Nombre del archivo <br>
+<input name=nomarchivo placeholder="nombre del archivo "> <br>
 Contenido<br>
 <textarea name=contarchivo rows=10 cols=30 placeholder="Ingrese aquí el código php o html"></textarea>
 
@@ -96,6 +97,7 @@ Contenido<br>
 <?php foreach ($folders as $f): ?>
 
 <a href="<?= $f ?>/" class="card">
+<input type=checkbox >
 <span class="icon">📁</span>
 <div><strong><?= $f ?></strong><br><small>Directorio de clase</small></div>
 </a>
@@ -103,14 +105,23 @@ Contenido<br>
 </div>
 
 <h2>Archivos Sueltos</h2>
+<form name=archABorrar method= POST action=borrar.php>
 <div class="grid">
-<?php foreach ($files as $file): ?>
+
+<?php $i =0; 
+foreach ($files as $file): ?>
 <a href="<?= $file ?>" class="card" style="border-left-color: #2196F3;">
-<span class="icon">📄</span>
+    <span class="icon">📄</span>
+    <input type=checkbox name="chbx[]" value=<?= $file ?> >
 <div><strong><?= $file ?></strong></div>
 </a>
 <?php endforeach; ?>
 </div>
+
+<input type=submit value="Borrar archivos seleccionados">
+</form>
+
+
 
 <footer>Generado automáticamente por el Servidor Nginx/PHP local</footer>
 </div>
