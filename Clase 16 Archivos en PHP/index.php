@@ -4,28 +4,32 @@
 */
 $directory = '.';   // directory actual
 $items = scandir($directory); //Acá está la lista de lo que hay en el directorio.
+
 /*
-echo $items;
-printf("<p> %s", $items);
+echo "items via echo: ". $items;
+printf("<p>items via printf():  %s", $items);
+echo "<br>";
+echo "Lista de elementos en el directorio: <br>";
 foreach($items as $unelemento) echo $unelemento . "<br>";
 */
 
 
 // Filtros para ignorar archivos de sistema y configuración
 $ignorados = ['.', '..', '.git', '.gitignore', 'index.php', 'Readme.md', 'docker-compose.yml', 'configNginx',
-'baseDatosWeb'];
+'baseDatosWeb','borrar.php'];
 
 
 $folders = [];
 $files = [];
 
-foreach ($items as $item) {
-if (in_array($item, $ignorados) || str_starts_with($item, '_') ) continue;
-if (is_dir($directory . '/' . $item)) {
-$folders[] = $item;
-} else {
-$files[] = $item;
-}
+foreach ($items as $unItem) {
+    // Si $unItem está en el string "ignorados[]" o su nombre comienza con guión bajo, no lo agrega.
+    if (in_array($unItem, $ignorados) || str_starts_with($unItem, '_') ) continue;
+    if (is_dir($directory . '/' . $unItem)) {
+        $folders[] = $unItem;
+        } else {
+        $files[] = $unItem;
+        }
 }
 
 natcasesort($folders);
@@ -97,9 +101,9 @@ Contenido<br>
 <?php foreach ($folders as $f): ?>
 
 <a href="<?= $f ?>/" class="card">
-<input type=checkbox >
-<span class="icon">📁</span>
-<div><strong><?= $f ?></strong><br><small>Directorio de clase</small></div>
+    <input type=checkbox >
+    <span class="icon">📁</span>
+    <div><strong><?= $f ?></strong><br><small>Directorio de clase</small></div>
 </a>
 <?php endforeach; ?>
 </div>
@@ -113,7 +117,7 @@ foreach ($files as $file): ?>
 <a href="<?= $file ?>" class="card" style="border-left-color: #2196F3;">
     <span class="icon">📄</span>
     <input type=checkbox name="chbx[]" value=<?= $file ?> >
-<div><strong><?= $file ?></strong></div>
+    <div><strong><?= $file ?></strong></div>
 </a>
 <?php endforeach; ?>
 </div>

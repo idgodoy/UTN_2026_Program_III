@@ -15,29 +15,29 @@ services:
       - ./:/var/www/html
     depends_on:
       - php
-#      - db
+      - db
 
-#  db:
-#    image: mysql:8.4.2
-#    container_name: db_UTN
-#    environment:
-#      MYSQL_ROOT_PASSWORD: abcde1234
-#      MYSQL_DATABASE: datos
-#      MYSQL_USER: usuario
-#      MYSQL_PASSWORD: abcde5678
-#    volumes:
-#      - ./baseDatosWeb:/var/lib/mysql
-#    ports:
-#      - "3306:3306"
+  db:
+    image: mysql:8.4.2
+    container_name: db_UTN
+    environment:
+      MYSQL_ROOT_PASSWORD: abcde1234
+      MYSQL_DATABASE: datos
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: abcde5678
+    volumes:
+      - ./bDContenedor:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
-#  phpmyadmin:
-#    image: phpmyadmin:latest
-#    container_name: phpmyadmin_UTN
-#    environment:
-#      PMA_HOST: db_UTN
-#      PMA_USER: usuario
-#      PMA_PASSWORD: abcde5678
-#    ports:
-#      - "8080:80"
-#    depends_on:
-#      - db
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin_UTN
+    environment:
+      PMA_HOST: db_UTN
+      PMA_USER: usuario
+      PMA_PASSWORD: abcde5678
+    ports:
+      - "8080:80"
+    depends_on:
+      - db

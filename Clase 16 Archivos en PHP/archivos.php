@@ -1,14 +1,10 @@
 <?php
-
 $contenido = $_POST['contarchivo'];
 $nombre = $_POST['nomarchivo'];
 
 $archivo = fopen($nombre,"w");
 fwrite($archivo, $contenido);
 fclose($archivo);
-
-
-
 ?>
 
 

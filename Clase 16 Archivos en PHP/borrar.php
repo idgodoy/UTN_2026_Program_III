@@ -1,13 +1,10 @@
 <?php
 
-$vectorArchivos = $_POST['chbx'];
-
-
-
-
-
+$vectorArchivos = $_POST['chbx'];  // chbx es un vector de elementos checkbox
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,17 +13,15 @@ $vectorArchivos = $_POST['chbx'];
 
 </head>
 <body>
+
 <?
- echo "Se tildaron borraron: <br><br>"; 
+echo "Se tildaron <br><br>"; 
 foreach($vectorArchivos as $archivo){
-
-echo $archivo. "<br>";
-unlink($archivo);
-
-
-
+    echo $archivo. " borrado <br>";
+    unlink($archivo);  //borra el archivo.
 }
 ?>
+
 <p>Archivos borrados con éxito</p>
 <p></p>
 <a href="index.php">Volver</a>

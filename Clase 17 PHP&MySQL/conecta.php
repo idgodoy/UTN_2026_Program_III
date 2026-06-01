@@ -4,12 +4,15 @@ $usuario = "root";   // de http://localhost/MAMP/
 $password = "root";
 $baseDatos = "datos";
 
-// Create connection
+// Crea conexión (objeto)
 $conexión = new mysqli($server, $usuario, $password, $baseDatos);
 
-// Check connection
+// Verifica estab lecimientro de la conexión:
 if ($conexión->connect_error) {
   die("Fallo al conectar: " . $conexión->connect_error);
 }
 echo "Conexión exitosa!";
+// Cierra la conexión.
+$conexión->close();
+echo "Conexión cerrada.";
 ?>

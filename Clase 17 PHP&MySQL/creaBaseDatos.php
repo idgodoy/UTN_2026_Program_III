@@ -8,18 +8,40 @@ $password = "root";     // idem
 $conexión = new mysqli($server, $usuario, $password);
 
 // Check connection
+
+$sql = "CREATE DATABASE miBD";
+
+
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<?php
 if ($conexión->connect_error) {
   die("Fallo al conectar: " . $conexión->connect_error);
 }
-echo "Conexión exitosa!";
+echo "<p>Conexión exitosa...!";
 
-$sql = "CREATE DATABASE miBD";
 if ($conexión->query($sql) === TRUE) {
-  echo "Base de datos creada con éxito!";
+  echo "<p>Base de datos creada con éxito!";
 } else {
-  echo "Error al crear la base de datos: " . $conexión->error;
+  echo "<p>Error al crear la base de datos: " . $conexión->error;
 }
-
 // Cierra la conexión.
 $conexión->close();
+echo "Conexión cerrada.";
 ?>
+<p> <a href=creaTabla.php>Crear tabla mediante creaTabla.php</a> </p>
+<p> <a href="index.php">Volver</a>
+
+
+</body>
+</html>
