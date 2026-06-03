@@ -15,7 +15,9 @@
 <p> 
 <a href="creaBaseDatos.php">Crear base de datos mediante creaBaseDatos.php</a>
 </p>
-
+<p> 
+<a href="creaTabla.php">Crear Tabla en la base de datos miBD mediante creaTabla.php</a>
+</p>
 <p> <a href="cargarDatos.html">Cargar datos en la tabla Alumnos de la base de datos miBD</a>
 </p>
 </body>

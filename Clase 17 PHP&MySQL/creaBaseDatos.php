@@ -3,18 +3,12 @@
 $server = "localhost";
 $usuario = "root";      // de http://localhost/MAMP/
 $password = "root";     // idem
-
 // Establece la conexión con el servidor.
 $conexión = new mysqli($server, $usuario, $password);
 
-// Check connection
-
-$sql = "CREATE DATABASE miBD";
-
+$sql = "DROP DATABASE miNuevaBD";
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

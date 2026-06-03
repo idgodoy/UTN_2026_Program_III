@@ -9,6 +9,8 @@ $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $email = $_POST['email'];
 
+echo "Datos recibidos:<p>";
+
 echo $nombre."<br>";
 echo $apellido."<br>";
 echo $email."<br>";
