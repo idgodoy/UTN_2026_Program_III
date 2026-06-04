@@ -20,6 +20,10 @@
 </p>
 <p> <a href="cargarDatos.html">Cargar datos en la tabla Alumnos de la base de datos miBD</a>
 </p>
+<p> Actividad: </p>
+<p>
+Basándose en <a href=ingreso.html>ingreso.html </a> y en <a href=registro.html>registro.html</a> crear las páginas a las que esos formularios refieren para dar de alta nuevos usuarios y para verificar el ingreso.
+</p>
 </body>
 
 </html>
