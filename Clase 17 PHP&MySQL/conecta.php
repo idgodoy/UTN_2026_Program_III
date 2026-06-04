@@ -2,7 +2,9 @@
 $server = "localhost";
 $usuario = "root";   // de http://localhost/MAMP/
 $password = "root";
-$baseDatos = "datos";
+$baseDatos = "mibd";
+
+
 
 // Crea conexión (objeto)
 $conexión = new mysqli($server, $usuario, $password, $baseDatos);
@@ -11,8 +13,4 @@ $conexión = new mysqli($server, $usuario, $password, $baseDatos);
 if ($conexión->connect_error) {
   die("Fallo al conectar: " . $conexión->connect_error);
 }
-echo "Conexión exitosa!";
-// Cierra la conexión.
-$conexión->close();
-echo "Conexión cerrada.";
 ?>

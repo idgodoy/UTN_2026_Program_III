@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../CSS/style.css">
 </head>
 
 <body>
 
+<h2>Formulario de registro</h2>
+<p> Los datos se cargar&aacute;n en la base de datos miDB, en la tabla alumnos.</p>
+
+<p>
 <form action="cargarDatos.php" method="post" name="F1">
-    <p></p>
+  
 <label for="nombre">Nombre:</label>
 <input type="text" id="nombre" name="nombre" required>
-<br>  <p></p>
+<br>  
 <label for="apellido">Apellido:</label>
 <input type="text" id="apellido" name="apellido" required>
-<br>  <p></p>
+<br> 
 <label for="email">Email:</label>
 <input type="email" id="email" name="email" required>
-<br>  <p></p>
+<br> 
 <input type="submit" value="Enviar">
 
 
 </form>
-
+</p>
 
 
 

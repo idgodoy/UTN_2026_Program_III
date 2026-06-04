@@ -1,29 +1,38 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "mibd";
 
-// Crea conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Chequea conexión
-if ($conn->connect_error) {
-  die("Error al conectar a la base de datos: " . $conn->connect_error);
-}
+include ("../Clase 17 PHP&MySQL/conecta.php");
 
-$sql = "SELECT id, nombre, apellido FROM alumnos";
+$tabla = "alumnos";
+$sql = "SELECT id, nombre, apellido FROM ".$tabla;
 // Executa la consulta SQL
-$result = $conn->query($sql);
+$result = $conexión->query($sql);
+
+echo "Contenido de la tabla ".$tabla;
+echo "<br>";
 
 // Procesa "$resultado"
 if ($result->num_rows > 0) {
   // Muestra cada row (fila) de la respuesta
+
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Nombre: " . $row["nombre"]. " " . $row["apellido"]. "<br>";
+    echo "id: " . $row["id"]. " - Nombre: " . $row["nombre"]. " Apellido: " . $row["apellido"]. "<br>";
   }
 } else {
   echo "Sin resultados";
 }
+echo "<p>";
+echo "Selecciona id=6: <br>";
+$sql = "SELECT id, nombre, apellido FROM $tabla WHERE id = 6 ";
+$result = $conexión->query($sql);
+if ($result->num_rows > 0) {
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["id"]. " - Nombre: " . $row["nombre"]. " Apellido: " . $row["apellido"]. "<br>";
+  }
+} else {
+  echo "Sin resultados";
+}
+
+
 //Cerramos la conexión con la BD.
-$conn->close();
+$conexión->close();
 ?>

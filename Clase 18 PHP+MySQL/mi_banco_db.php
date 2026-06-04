@@ -1,0 +1,26 @@
+<?php
+
+$sql = "CREATE DATABASE IF NOT EXISTS mi_banco_db;
+USE mi_banco_db;
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    tipo_doc VARCHAR(10) NOT NULL,
+    documento VARCHAR(20) NOT NULL UNIQUE ,
+    fecha_nacimiento DATE NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    banco_emisor VARCHAR(50) NOT NULL,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    creado_el TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+ 
+
+
+echo "<pre style=font-size:20px;>";
+echo $sql;
+echo "</pre>";
+
+?>
