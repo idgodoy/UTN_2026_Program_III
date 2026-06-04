@@ -10,3 +10,8 @@
     label {
         padding: 20px;
     }
+    h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 22px;
+        padding: 10px;
+    }

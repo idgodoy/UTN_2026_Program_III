@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     tipo_doc VARCHAR(10) NOT NULL,
-    documento VARCHAR(20) NOT NULL UNIQUE,
+    documento VARCHAR(20) NOT NULL UNIQUE ,
     fecha_nacimiento DATE NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     banco_emisor VARCHAR(50) NOT NULL,

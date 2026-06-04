@@ -12,8 +12,8 @@ foreach($items as $unelemento) echo $unelemento . "<br>";
 
 
 // Filtros para ignorar archivos de sistema y configuración
-$ignorados = ['.', '..', '.git', '.gitignore', 'index.php', 'Readme.md', 'docker-compose.yml', 'configNginx',
-'baseDatosWeb'];
+$ignorados = ['.', '..', '.git', '.gitignore', 'index.php', 'ejer1','Readme.md', 'docker-compose.yml', 'configNginx',
+'baseDatosWeb','CSS'];
 
 
 $folders = [];
