@@ -6,7 +6,7 @@ $password = "root";     // idem
 // Establece la conexión con el servidor.
 $conexión = new mysqli($server, $usuario, $password);
 
-$sql = "CREATE DATABASE miNuevaBD";
+$sql = "DROP DATABASE miNuevaBD";
 
 ?>
 <!DOCTYPE html>
