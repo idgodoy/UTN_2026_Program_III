@@ -26,6 +26,9 @@
 <p> <a href="select.php">Ver datos de la tabla Alumnos de la base de datos miBD</a>
 </p>
 
+<form name=F1 action=select.php method=post>
+Buscar por Id <input name="idBuscado" > &nbsp; <input type=submit value=Buscar>
+</form>
 
 <p> Actividad: </p>
 <p>Basándose en <a href=ingreso.html>ingreso.html </a> y en <a href=registro.html>registro.html</a> crear las páginas a las que esos formularios refieren para dar de alta nuevos usuarios y para verificar el ingreso.

@@ -1,32 +1,43 @@
 <?php
 
-include ("../Clase 17 PHP&MySQL/conecta.php");
+include ("../Clase 17 PHP&MySQL/conectar.php");
+
+$idBuscado = $_POST['idBuscado'];
 
 $tabla = "alumnos";
 $sql = "SELECT id, nombre, apellido FROM ".$tabla;
 // Executa la consulta SQL
-$result = $conexión->query($sql);
+$resultado = $conexión->query($sql);
 
 echo "Contenido de la tabla ".$tabla;
 echo "<br>";
 
+
+
+
 // Procesa "$resultado"
-if ($result->num_rows > 0) {
+if ($resultado->num_rows > 0) {
   // Muestra cada row (fila) de la respuesta
 
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Nombre: " . $row["nombre"]. " Apellido: " . $row["apellido"]. "<br>";
+
+
+  while( $fila = $resultado->fetch_assoc() ) {
+    echo "id: " . $fila["id"]. "  -  Nombre y Apellido: " . $fila["nombre"]." ". $fila["apellido"]. "<br>";
   }
 } else {
   echo "Sin resultados";
 }
 echo "<p>";
-echo "Selecciona id=6: <br>";
-$sql = "SELECT id, nombre, apellido FROM $tabla WHERE id = 6 ";
-$result = $conexión->query($sql);
-if ($result->num_rows > 0) {
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["id"]. " - Nombre: " . $row["nombre"]. " Apellido: " . $row["apellido"]. "<br>";
+$orden = 4;
+echo "Selecciona id = $idBuscado: <br>";
+
+$sql = "SELECT id, nombre, apellido FROM $tabla WHERE id = $idBuscado";
+
+
+$resultado = $conexión->query($sql);
+if ($resultado->num_rows > 0) {
+  while($fila = $resultado->fetch_assoc()) {
+    echo "id: " . $fila["id"]. " - Nombre: " . $fila["nombre"]. " Apellido: " . $fila["apellido"]. "<br>";
   }
 } else {
   echo "Sin resultados";
