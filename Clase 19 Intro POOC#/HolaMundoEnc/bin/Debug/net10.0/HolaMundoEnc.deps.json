@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "HolaMundoEnc/1.0.0": {
+        "runtime": {
+          "HolaMundoEnc.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "HolaMundoEnc/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
