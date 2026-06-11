@@ -1,9 +1,17 @@
 ﻿using System;
 namespace ModAcc
 {
-    class Auto
+    
+    class Auto : Vehiculo
     {
         private string _color = "Amarillo";  // _color es un Atributo privado
+
+        /* CREANDO UN ATRIBUTO DE SOLO LECUTRA*/
+        private string codigo = "A2F34";
+        public string GetCodigo  { get{return codigo;}}
+
+
+
         // Opción1: Método seter y geter
         public void SetColor( string color){  // Método Público (setter)
              _color = color; 
@@ -36,12 +44,15 @@ namespace ModAcc
                         else _color = value;
                     }
                 }
+        //private string _ColorDirecto;
         public string ColorDirecto {get; set;}
     }
     class Program{ 
         static void Main(string[] args)
         {   
            Auto miAuto = new Auto("NEGRO");   
+            miAuto.marca = "Volkswagen";
+           Console.WriteLine("========================================");
            Console.WriteLine("Auto fue instanciado como " + miAuto.GetColor());     // get
            miAuto.SetColor("Rosa");              // set
            Console.WriteLine("Auto ahora es (usé el método) " + miAuto.GetColor());     // get
@@ -51,6 +62,10 @@ namespace ModAcc
            Console.WriteLine("ColorDirecto " + miAuto.ColorDirecto);
            Console.WriteLine("Auto y ahora es (propiedad Color) " + miAuto.Color);     // get
            Console.WriteLine("Usando GetColor() da  " + miAuto.GetColor());     // get
+           Console.WriteLine("Atrib de Solo Lectura 'codigo':"+ miAuto.GetCodigo);
+           Console.WriteLine("Moto: "+ Moto.Marca);
+            Console.WriteLine ("Marca: " + miAuto.marca);
+           Console.WriteLine("");
 
         }
     }
