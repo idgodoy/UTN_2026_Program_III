@@ -1,0 +1,15 @@
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\bin\Debug\net10.0\ModAcceso.exe
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\bin\Debug\net10.0\ModAcceso.deps.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\bin\Debug\net10.0\ModAcceso.runtimeconfig.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\bin\Debug\net10.0\ModAcceso.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\bin\Debug\net10.0\ModAcceso.pdb
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.GeneratedMSBuildEditorConfig.editorconfig
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.AssemblyInfoInputs.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.AssemblyInfo.cs
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.csproj.CoreCompileInputs.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.sourcelink.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\refint\ModAcceso.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.pdb
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ModAcceso.genruntimeconfig.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\ModAcceso\obj\Debug\net10.0\ref\ModAcceso.dll
