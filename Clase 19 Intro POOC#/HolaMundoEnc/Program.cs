@@ -5,9 +5,9 @@ namespace ClaseEvolutiva
     class Mensajero
     {
         // El dato real está oculto y protegido
-
+   /*
         public string Texto2 {get; set;}
-        /*
+     
         Texto2 será una PROPIEDAD que solo lee lo que contine un atributo y solo asigna value al atributo.
         */
 
@@ -52,8 +52,9 @@ namespace ClaseEvolutiva
     {
         static void Main(string[] args)
         {
+            //Instancio unnOBJETO llamado miMensajero, pert. a la clase Mensajero.
             Mensajero miMensajero = new Mensajero();
-            miMensajero.EnviarSaludo();
+            miMensajero.EnviarSaludo();  //Invoca al MÉTODO EnviarSaludo()
 
             // Prueba de encapsulamiento: intentamos romperlo mandando un vacío
             // miMensajero.Texto = "   "; 
