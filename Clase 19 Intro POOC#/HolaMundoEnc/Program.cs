@@ -5,27 +5,24 @@ namespace ClaseEvolutiva
     class Mensajero
     {
         // El dato real está oculto y protegido
-
-        public string Texto2 {get; set;}
-        /*
-        Texto2 será una PROPIEDAD que solo lee lo que contine un atributo y solo asigna value al atributo.
+   /*    public string Texto2 {get; set;}
+         Texto2 será una PROPIEDAD que solo lee lo que contine un atributo y solo asigna value al atributo.
         */
-
-
-        private string _texto;
-
-        public string Texto
+        private string _texto;  //ATRIBUTO.
+        public string Texto     // PROPIEDAD (permite acceder a los atributos private)
         {
             get { return _texto; }
             set 
-            {  // _texto = value;
-                // Filtro de seguridad: si viene vacío, ponemos un valor por defecto
+            {   // Filtro de seguridad: si viene vacío, ponemos un valor por defecto
                 if ( string.IsNullOrWhiteSpace(value) || string.IsNullOrEmpty(value) ) _texto = "Hola";
                 else _texto = value;
             }
         }
 
-        // Constructor para inicializar el objeto
+        /* Constructor para inicializar el objeto:
+            Utilizamos el método Mensajero SOBRECARGADO (un único nombre, diferentes 
+            métodos según los parámetros que lleguen).
+        */
         public Mensajero(string textoInicial)
         {
             Texto = textoInicial;
@@ -39,8 +36,6 @@ namespace ClaseEvolutiva
             Texto = "Hola sin argumentos";
         }
 
-
-
         // Método de instancia común
         public void EnviarSaludo()
         {
@@ -52,8 +47,9 @@ namespace ClaseEvolutiva
     {
         static void Main(string[] args)
         {
+            //Instancio unnOBJETO llamado miMensajero, pert. a la clase Mensajero.
             Mensajero miMensajero = new Mensajero();
-            miMensajero.EnviarSaludo();
+            miMensajero.EnviarSaludo();  //Invoca al MÉTODO EnviarSaludo()
 
             // Prueba de encapsulamiento: intentamos romperlo mandando un vacío
             // miMensajero.Texto = "   "; 

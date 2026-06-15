@@ -1,0 +1,15 @@
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\bin\Debug\net10.0\C20v.exe
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\bin\Debug\net10.0\C20v.deps.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\bin\Debug\net10.0\C20v.runtimeconfig.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\bin\Debug\net10.0\C20v.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\bin\Debug\net10.0\C20v.pdb
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.GeneratedMSBuildEditorConfig.editorconfig
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.AssemblyInfoInputs.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.AssemblyInfo.cs
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.csproj.CoreCompileInputs.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.sourcelink.json
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\refint\C20v.dll
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.pdb
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\C20v.genruntimeconfig.cache
+C:\MAMP\htdocs\Clase 20 Clases y Modif Acceso\C20v\obj\Debug\net10.0\ref\C20v.dll

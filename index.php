@@ -66,6 +66,10 @@ box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
 h2 { border-left: 5px solid var(--primary); padding-left: 10px; color: var(--primary); margin-top:
 40px; }
 footer { margin-top: 50px; text-align: center; color: #888; font-size: 0.9em; }
+.L1 {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 20px;
+    }
 </style>
 </head>
 <body>
@@ -75,6 +79,8 @@ footer { margin-top: 50px; text-align: center; color: #888; font-size: 0.9em; }
 <p>Dashboard de Clases y Recursos - UTN</p>
 </header>
 
+
+<p ><a class="L1" href="phpMyAdmin5/">phpMyAdmin</a></p>
 <h2>Carpetas de Clases</h2>
 <div class="grid">
 <?php foreach ($folders as $f): ?>
