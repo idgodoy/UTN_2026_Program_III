@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS mi_banco_db;
 USE mi_banco_db;
 
 CREATE TABLE IF NOT EXISTS usuarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    num_cuenta INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
     apellido VARCHAR(50) NOT NULL,
     tipo_doc VARCHAR(10) NOT NULL,
