@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivoTxt\\QueueArchivoTxt.csproj": {}
+    "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoTxt\\QueueArchivoTxt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivoTxt\\QueueArchivoTxt.csproj": {
+    "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoTxt\\QueueArchivoTxt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivoTxt\\QueueArchivoTxt.csproj",
+        "projectUniqueName": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoTxt\\QueueArchivoTxt.csproj",
         "projectName": "QueueArchivoTxt",
-        "projectPath": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivoTxt\\QueueArchivoTxt.csproj",
+        "projectPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoTxt\\QueueArchivoTxt.csproj",
         "packagesPath": "C:\\Users\\ocant\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivoTxt\\obj\\",
+        "outputPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoTxt\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

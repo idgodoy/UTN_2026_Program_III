@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivo\\QueueArchivo.csproj",
+      "projectUniqueName": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoJSON\\QueueArchivo.csproj",
       "projectName": "QueueArchivo",
-      "projectPath": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivo\\QueueArchivo.csproj",
+      "projectPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoJSON\\QueueArchivo.csproj",
       "packagesPath": "C:\\Users\\ocant\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ocant\\Desktop\\UTN.PROG2.1C.2026\\QueueArchivo\\obj\\",
+      "outputPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\QueueArchivoJSON\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
