@@ -5,7 +5,7 @@ using System.IO; // Para manejar archivos (File.Exists, File.WriteAllLines, File
 class Program
 {
     // Cambiamos la extensión del archivo a .txt
-    private static readonly string ArchivoTexto = "listaLavadero.txt";
+    private static readonly string ArchivoTexto = "listaLavadero.txt"; //Ruta del archivo.
     // Definimos un delimitador claro para separar los atributos
     private static readonly char Delimitador = ';';
 
@@ -122,7 +122,8 @@ class Program
             Console.WriteLine($"\nError al guardar los datos: {ex.Message}");
         }
     }
-
+    /*==================================================================*/
+    /* MÉTODO DE CLASE (Static), acceso Private, devuelve una COLA de elementos AUTO*/
     private static Queue<Auto> CargarDatos()
     {
         // Si el archivo no existe, devolvemos una cola vacía
