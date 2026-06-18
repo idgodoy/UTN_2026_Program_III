@@ -12,10 +12,10 @@ class Program
     static void Main(string[] args)
     {
         // Inicializamos la cola cargando los datos previos (si existen)
-        Queue<Auto> filaEstacion = CargarDatos();
-        bool salir = false;
+        Queue<Auto> filaAutos = CargarDatos();  // TIPO FIFO. Recibe datos del MÉTODO CargarDatos();
+        bool salir = false;  // Bandera booleana para terminar la app.
 
-        while (!salir)
+        while (!salir)  //Cilco principal del programa.
         {
             Console.Clear();
             Console.WriteLine("=== ESTACIÓN DE SERVICIO (CON PERSISTENCIA TXT) ===");
@@ -37,20 +37,20 @@ class Program
                     string combustible = Console.ReadLine()??"";
                     
                     Auto nuevoAuto = new Auto(patente, combustible);
-                    filaEstacion.Enqueue(nuevoAuto);
+                    filaAutos.Enqueue(nuevoAuto);
                     
                     // Guardamos el estado actual en el archivo
-                    GuardarDatos(filaEstacion);
+                    GuardarDatos(filaAutos);
                     Console.WriteLine("\nAuto registrado y guardado en TXT con éxito.");
                     break;
 
                 case "2":
-                    if (filaEstacion.Count > 0)
+                    if (filaAutos.Count > 0)
                     {
-                        Auto autoAtendido = filaEstacion.Dequeue();
+                        Auto autoAtendido = filaAutos.Dequeue();
                         
                         // Como la cola cambió, actualizamos el archivo inmediatamente
-                        GuardarDatos(filaEstacion);
+                        GuardarDatos(filaAutos);
                         Console.WriteLine($"\nAtendiendo al auto -> {autoAtendido}");
                     }
                     else
@@ -60,18 +60,18 @@ class Program
                     break;
 
                 case "3":
-                    Console.WriteLine($"\nCantidad de autos esperando: {filaEstacion.Count}");
+                    Console.WriteLine($"\nCantidad de autos esperando: {filaAutos.Count}");
                     break;
 
                 case "4":
                     Console.WriteLine("\n--- Autos en espera ---");
-                    if (filaEstacion.Count == 0)
+                    if (filaAutos.Count == 0)
                     {
                         Console.WriteLine("La fila está vacía.");
                     }
                     else
                     {
-                        foreach (var auto in filaEstacion)
+                        foreach (var auto in filaAutos)
                         {
                             Console.WriteLine(auto);
                         }
@@ -129,7 +129,7 @@ class Program
         // Si el archivo no existe, devolvemos una cola vacía
         if (!File.Exists(ArchivoTexto))
         {
-            return new Queue<Auto>();
+            return new Queue<Auto>();  //Si no existe listaLavadero.txt devuelvo una cola vacía.
         }
 
         Queue<Auto> colaCargada = new Queue<Auto>();
@@ -154,11 +154,11 @@ class Program
                         string combustible = partes[1];
 
                         Auto auto = new Auto(patente, combustible);
-                        colaCargada.Enqueue(auto);
+                        colaCargada.Enqueue(auto);  //Agrego Auto a la cola de autos.
                     }
                 }
             }
-            return colaCargada;
+            return colaCargada;  // Devuelvo la cola de autos ya cargada.
         }
         catch (Exception ex)
         {

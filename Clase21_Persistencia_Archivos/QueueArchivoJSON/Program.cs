@@ -1,3 +1,10 @@
+/*
+ACTIVIDAD: 
+1) Modificar el programa para que guarde patente, marca, modelo, año, combustible, fecha ingreso.
+2) Agregar "feature": Guardar histórico de autos atendidos.
+    2.a) Agregar al menú la opción "Ver histórico autos atendidos".
+
+*/
 using System;
 using System.Collections.Generic;
 using System.IO;          // Para manejar archivos (File.Exists, File.WriteAllText, etc.)
