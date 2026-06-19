@@ -1,0 +1,7 @@
+CC222DD;Gasoil
+HJK234;Nafta
+CD123HI;Nafta
+AB432BB;Gasoil
+AB001D;Nafta
+JWT123;Nafta
+
