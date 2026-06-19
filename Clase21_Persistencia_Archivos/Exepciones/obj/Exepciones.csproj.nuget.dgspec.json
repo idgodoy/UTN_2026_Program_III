@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj": {}
+    "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj": {}
   },
   "projects": {
-    "c:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj": {
+    "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj",
+        "projectUniqueName": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj",
         "projectName": "Exepciones",
-        "projectPath": "c:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj",
+        "projectPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\Exepciones.csproj",
         "packagesPath": "C:\\Users\\ocant\\.nuget\\packages\\",
-        "outputPath": "c:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\obj\\",
+        "outputPath": "C:\\MAMP\\htdocs\\Clase21_Persistencia_Archivos\\Exepciones\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
