@@ -20,7 +20,7 @@ namespace ListaBDAlumnos
         static void Main(string[] args)
         {
             // Cadena de conexión.
-            string connectionString = "Server=localhost;Port=3306;Database=miBD;Uid=root;Pwd=root;";
+            string connectionString = "Server=localhost;Port=3306;Database=prog3n3;Uid=root;Pwd=root;";
             Console.WriteLine("Intentando conectar a la base de datos MySQL...");
             // Abrimos la conexión asegurando el cierre de recursos con 'using'.
             using (MySqlConnection conexion = new MySqlConnection(connectionString))
@@ -28,6 +28,7 @@ namespace ListaBDAlumnos
                 try
                 {
                     conexion.Open(); //Aquí es dónde la conexión se abre. (Se cierra gracias a using)
+                    // Biri Biri
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("¡Conexión exitosa al servidor de MySQL!\n");
                     Console.ResetColor();
@@ -58,8 +59,10 @@ namespace ListaBDAlumnos
 
                                 Console.WriteLine(string.Format("{0,-10} | {1,-12} | {2,-12} | {3,-32} | {4,-22} | {5,-8}", 
                                     legajo, nombre, apellido, email, carrera, turno));
+                                Console.ReadLine();
                             }
                             Console.WriteLine("==========================================================================================================\n");
+                            
                         }
                     }
                 }
