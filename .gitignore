@@ -1,2 +1,3 @@
 # Ignorar carpetas de borrador o temporales del docente
 _*
+*.AssemblyInfo.*
