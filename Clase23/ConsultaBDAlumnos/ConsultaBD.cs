@@ -12,23 +12,74 @@ using System;
 using MySqlConnection = MySql.Data.MySqlClient.MySqlConnection;
 using MySqlCommand = MySql.Data.MySqlClient.MySqlCommand;
 using MySqlDataReader = MySql.Data.MySqlClient.MySqlDataReader;
+using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace ListaBDAlumnos
 {
     class Program
     {
-        public static void Mostrar(string opcion)
+        public static bool Mostrar(string opcion, MySqlConnection conexion)
         {
-            return;
+            string consulta ="";
+            bool salir = false;
+            switch (opcion)
+            {
+                case "3": consulta = "SELECT legajo, nombre, apellido, email, carrera, turno FROM alumnos"; 
+                          break;
+                case "1": consulta ="SELECT legajo, nombre, apellido, email, carrera, turno FROM alumnos WHERE turno = 'noche'"; break;
+                case "2": consulta ="SELECT legajo, nombre, apellido, email, carrera, turno FROM alumnos WHERE turno = 'mañana'"; break;
+                case "0": return salir = true;
+                default:  break;
+            }
+
+            using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
+            {
+                using (MySqlDataReader lector = comando.ExecuteReader())
+                {
+                    Console.WriteLine("==========================================================================================================");
+                    Console.WriteLine("                                           LISTADO DE ALUMNOS (LINEAL)                                    ");
+                    Console.WriteLine("==========================================================================================================");
+                    Console.WriteLine(string.Format("{0,-10} | {1,-12} | {2,-12} | {3,-32} | {4,-22} | {5,-8}", 
+                    "Legajo", "Nombre", "Apellido", "Email", "Carrera", "Turno"));
+                    Console.WriteLine("----------------------------------------------------------------------------------------------------------");
+
+                          // Bloque iterativo: leemos fila por fila mientras el lector tenga datos
+                    while (lector.Read())
+                    {
+                        string legajo = lector["legajo"].ToString()??"";
+                        string nombre = lector["nombre"].ToString()??"";
+                        string apellido = lector["apellido"].ToString()??"";
+                        string email = lector["email"].ToString()??"";
+                        string carrera = lector["carrera"].ToString()??"";
+                        string turno = lector["turno"].ToString()??"";
+                        Console.WriteLine(string.Format("{0,-10} | {1,-12} | {2,-12} | {3,-32} | {4,-22} | {5,-8}", 
+                                   legajo, nombre, apellido, email, carrera, turno));
+                                //Console.ReadLine();
+                    }
+                    Console.WriteLine("==========================================================================================================\n");
+                          
+                }
+            }
+            return salir;        
         }
-        static void Main(string[] args)
+        public static MySqlConnection CreaConexion()
         {
-            string opcion = "";
-            // Cadena de conexión.
             string connectionString = "Server=127.0.0.1;Port=3306;Database=mibd;Uid=root;Pwd=root;";
             Console.WriteLine("Intentando conectar a la base de datos MySQL...");
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+            return conexion;
+        }
+        
+        
+        static void Main(string[] args)
+        {   
+            bool salir = false;
+            string opcion = "";
+            // Cadena de conexión.
+            
             // Abrimos la conexión asegurando el cierre de recursos con 'using'.
-            using (MySqlConnection conexion = new MySqlConnection(connectionString))
+            using (MySqlConnection conexion = CreaConexion())
             { //conexion es un OJETO que prepara el canal TCP para conectar al servidor MySql.
                 try
                 {
@@ -36,39 +87,17 @@ namespace ListaBDAlumnos
                     // Biri Biri
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("¡Conexión exitosa al servidor de MySQL!\n");
-                    Console.ResetColor();
-
-                    // Sentencia SQL pura para interactuar con la BD
-           string consulta = "SELECT legajo, nombre, apellido, email, carrera, turno FROM alumnos";
-
-                    using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
-                    {
-                        using (MySqlDataReader lector = comando.ExecuteReader())
-                        {
-                            Console.WriteLine("==========================================================================================================");
-                            Console.WriteLine("                                           LISTADO DE ALUMNOS (LINEAL)                                    ");
-                            Console.WriteLine("==========================================================================================================");
-                            Console.WriteLine(string.Format("{0,-10} | {1,-12} | {2,-12} | {3,-32} | {4,-22} | {5,-8}", 
-                                "Legajo", "Nombre", "Apellido", "Email", "Carrera", "Turno"));
-                            Console.WriteLine("----------------------------------------------------------------------------------------------------------");
-
-                            // Bloque iterativo: leemos fila por fila mientras el lector tenga datos
-                            while (lector.Read())
-                            {
-                                string legajo = lector["legajo"].ToString()??"";
-                                string nombre = lector["nombre"].ToString()??"";
-                                string apellido = lector["apellido"].ToString()??"";
-                                string email = lector["email"].ToString()??"";
-                                string carrera = lector["carrera"].ToString()??"";
-                                string turno = lector["turno"].ToString()??"";
-
-                                Console.WriteLine(string.Format("{0,-10} | {1,-12} | {2,-12} | {3,-32} | {4,-22} | {5,-8}", 
-                                    legajo, nombre, apellido, email, carrera, turno));
-                                //Console.ReadLine();
-                            }
-                            Console.WriteLine("==========================================================================================================\n");
-                            
-                        }
+                    Console.ResetColor();    
+    
+    
+                    Mostrar("3", conexion); //Muestra Listado Completo.
+                    while(!salir){
+                    Console.WriteLine("Menú de Opciones");
+                    Console.WriteLine("1. Mostrar alumnos turno noche");
+                    Console.WriteLine("2. Mostrar alumnos turno mañana");
+                    Console.WriteLine("\n0. Salir");
+                    opcion = Console.ReadLine()??"";
+                    salir = Mostrar(opcion, conexion);
                     }
                 }
                 catch (Exception ex)
@@ -80,16 +109,6 @@ namespace ListaBDAlumnos
                     Console.ResetColor();
                 }
             }
-
-            Console.WriteLine("Menú de Opciones");
-            Console.WriteLine("1. Mostrar alumnos turno noche");
-            Console.WriteLine("2. Mostrar alumnos turno mañana");
-            Console.WriteLine("\n0. Salir");
-            opcion = Console.ReadLine()??"";
-            Mostrar(opcion);
-
- 
- 
  
             Console.WriteLine("Presione cualquier tecla para salir...");
             Console.ReadKey();
