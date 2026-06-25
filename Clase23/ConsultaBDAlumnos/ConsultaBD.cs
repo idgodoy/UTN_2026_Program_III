@@ -17,8 +17,13 @@ namespace ListaBDAlumnos
 {
     class Program
     {
+        public static void Mostrar(string opcion)
+        {
+            return;
+        }
         static void Main(string[] args)
         {
+            string opcion = "";
             // Cadena de conexión.
             string connectionString = "Server=127.0.0.1;Port=3306;Database=mibd;Uid=root;Pwd=root;";
             Console.WriteLine("Intentando conectar a la base de datos MySQL...");
@@ -76,8 +81,24 @@ namespace ListaBDAlumnos
                 }
             }
 
+            Console.WriteLine("Menú de Opciones");
+            Console.WriteLine("1. Mostrar alumnos turno noche");
+            Console.WriteLine("2. Mostrar alumnos turno mañana");
+            Console.WriteLine("\n0. Salir");
+            opcion = Console.ReadLine()??"";
+            Mostrar(opcion);
+
+ 
+ 
+ 
             Console.WriteLine("Presione cualquier tecla para salir...");
             Console.ReadKey();
+ 
+ 
+ 
+ 
+ 
+ 
         }
     }
 }
